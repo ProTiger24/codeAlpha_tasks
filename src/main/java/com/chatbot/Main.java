@@ -4,7 +4,12 @@ import static spark.Spark.*;
 
 public class Main {
     public static void main(String[] args) {
-        port(8080);
+
+        int port = System.getenv("PORT") != null
+                ? Integer.parseInt(System.getenv("PORT"))
+                : 8080;
+
+        port(port);
         staticFiles.location("/static");
 
         before((req, res) -> {
@@ -16,6 +21,6 @@ public class Main {
         options("/*", (req, res) -> "OK");
         post("/chat", new ChatHandler());
 
-        System.out.println("Chatbot running at http://localhost:8080");
+        System.out.println("✅ Chatbot running on port " + port);
     }
 }
