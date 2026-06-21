@@ -1,5 +1,3 @@
-package com.chatbot;
-
 import okhttp3.*;
 import org.json.*;
 
