@@ -1,11 +1,9 @@
-package com.chatbot;
-
 import okhttp3.*;
 import org.json.*;
 
 public class ClaudeService {
 
-    String API_KEY = System.getenv("GROQ_API_KEY");
+    private static final String API_KEY = System.getenv("GROQ_API_KEY");
     private static final String API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
     public String sendMessage(String userMessage) throws Exception {
